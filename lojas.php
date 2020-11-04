@@ -10,14 +10,22 @@
 
 <body>
 <!-- div id SITE -->
+
+<?php
+
+include('menu.html');
+
+?>
+
+
 <div id="container"> 
 <header>
     <nav class="menu">
 
-        <a href="index.html"><img src="imagens/emblema.jpeg" width="100" height="60" alt="Logo Full Stack Eletro"></a>
-        <a href="produtos.html">Nossos Produtos</a>
-        <a href="lojas.html">Nossas Lojas</a>
-        <a href="contato.html">Entre em Contato</a>
+    <a href="index.php"><img src="imagens/emblema.jpeg" width="100" height="60" alt="Logo Full Stack Eletro"></a>
+        <a href="produtos.php">Nossos Produtos</a>
+        <a href="lojas.php">Nossas Lojas</a>
+        <a href="contato.php">Entre em Contato</a>
 
     </nav>
 </header>

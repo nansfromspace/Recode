@@ -1,3 +1,32 @@
+<?php
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "fseletro";
+
+//criando a conexao
+$conn = mysqli_connect($servername, $username, $password, $database);
+
+//verificando conexao
+if (!$conn) {
+    die("a conexao ao BD falhou:" . mysqli_connect_error());
+}
+
+$sql = "select * from Produto";
+$result = $conn->query($sql);
+
+if($result->num_rows > 0){
+    while($rows = $result->fetch_assoc()){
+        echo $rows["Categoria"];
+    }
+
+} else {
+    echo "Nenhum produto cadastrado!";
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -12,14 +41,23 @@
 
 <body>
 <!-- div id SITE -->
+
+
+<?php
+
+include('menu.html');
+
+?>
+
+
 <div id="container"> 
 <header>
     <nav class="menu">
 
-        <a href="index.html"><img src="imagens/emblema.jpeg" width="100" height="60" alt="Logo Full Stack Eletro"></a>
-        <a href="produtos.html">Nossos Produtos</a>
-        <a href="lojas.html">Nossas Lojas</a>
-        <a href="contato.html">Entre em Contato</a>
+        <a href="index.php"><img src="imagens/emblema.jpeg" width="100" height="60" alt="Logo Full Stack Eletro"></a>
+        <a href="produtos.php">Nossos Produtos</a>
+        <a href="lojas.php">Nossas Lojas</a>
+        <a href="contato.php">Entre em Contato</a>
 
     </nav>
 </header>

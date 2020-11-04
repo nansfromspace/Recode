@@ -1,3 +1,29 @@
+<?php
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "fseletro";
+
+//criando a conexao
+$conn = mysqli_connect($servername, $username, $password, $database);
+
+//verificando conexao
+if (!$conn) {
+    die("a conexao ao BD falhou:" . mysqli_connect_error());
+}
+
+if(isset($_POST['nome']) && isset($_POST['msg']) && isset($_POST['pedido'])){
+    $nome = $_POST['nome'];
+    $msg = $_POST['msg'];
+    $pedido = $_POST['pedido'];
+
+    echo $nome, $msg, $pedido;
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -10,19 +36,43 @@
 
 <body>
 <!-- div id SITE -->
+
+
+<?php
+
+include('menu.html');
+
+?>
+
+
 <div id="container"> 
 <header>
     <nav class="menu">
 
-        <a href="index.html"><img src="imagens/emblema.jpeg" width="100" height="60" alt="Logo Full Stack Eletro"></a>
-        <a href="produtos.html">Nossos Produtos</a>
-        <a href="lojas.html">Nossas Lojas</a>
-        <a href="contato.html">Entre em Contato</a>
-
+     <a href="index.php"><img src="imagens/emblema.jpeg" width="100" height="60" alt="Logo Full Stack Eletro"></a>
+        <a href="produtos.php">Nossos Produtos</a>
+        <a href="lojas.php">Nossas Lojas</a>
+        <a href="contato.php">Entre em Contato</a>
     </nav>
 </header>
 
- <!--div produtos -->  
+<!-- formulario de pedido -->
+
+<form method="post" action="">
+    Nome: <br>
+    <input type="text" name="nome" style="width:500px"><br>
+    Mensagem: <br>
+    <input type="text" name="msg" style="width:500px"><br>
+    Pedido: <br>
+    <input type="text" name="pedido" style="width:500px"><br>
+  
+    <input type="submit" name="submit" value="Enviar"><br>
+</form>
+
+
+
+
+ <!--div produtos
     <main>
         <header>Contato</header>
 
@@ -64,8 +114,8 @@
 
 
         
-    </section>
-</main>  
+    </section> 
+</main>  -->
 
 <footer class="rodape">
 
